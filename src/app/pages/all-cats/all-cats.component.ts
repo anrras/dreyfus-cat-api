@@ -1,5 +1,6 @@
 import { JsonPipe } from '@angular/common';
-import { Component, OnInit, computed, inject, model } from '@angular/core';
+import { Component, OnInit, computed, inject, model, signal } from '@angular/core';
+import { BreedResponse } from '@core/models';
 import { CatApiService } from '@core/services';
 import { CardComponent } from '@shared/components';
 import { ButtonModule } from 'primeng/button';
@@ -11,14 +12,22 @@ import { ButtonModule } from 'primeng/button';
   templateUrl: './all-cats.component.html',
   styleUrl: './all-cats.component.scss'
 })
-export default class AllCatsComponent {
-  private catService = inject(CatApiService)
-  catBreeds = this.catService.catBreeds
-  filter = model<string>('Bengal')
+export default class AllCatsComponent implements OnInit {
 
-  filteredBreeds = computed(() =>
-    this.catBreeds()?.filter(s => s.name.includes(this.filter())));
+  private catService = inject(CatApiService)
+  catBreeds = signal<BreedResponse[]>([])
+
+  page = 0
+
+  ngOnInit(): void {
+    this.getMoreBreeds()
+  }
 
   getMoreBreeds() {
+    this.catService.getMoreBreeds(this.page, 10).subscribe(res => {
+      console.log(res)
+      this.catBreeds.update(breeds => [...breeds, ...res]);
+      this.page++
+    })
   }
 }

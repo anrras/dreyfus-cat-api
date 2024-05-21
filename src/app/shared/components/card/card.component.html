@@ -1,7 +1,11 @@
 <div class="card flex justify-content-center">
   <p-card [header]="data().name" [subheader]="data().id" [style]="{ width: '360px' }">
     <ng-template pTemplate="header">
-      <img alt="Card" src="https://primefaces.org/cdn/primeng/images/card-ng.jpg" />
+      @if(data()?.image?.url){
+      <img alt="Card" src="{{data().image?.url}}" />
+      }@else {
+      <img alt="Card" src="/assets/imgs/no-image.png" />
+      }
     </ng-template>
     <p>
       {{ data().description }}
