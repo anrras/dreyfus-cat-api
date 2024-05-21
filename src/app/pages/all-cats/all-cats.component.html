@@ -1,0 +1,11 @@
+@if (catBreeds()) {
+<main>
+  @for (breed of catBreeds(); track $index) {
+  <app-card [data]="breed" />
+  }
+  @empty {
+  <p>No cats found</p>
+  }
+</main>
+}
+<p-button label="Ver Más" (click)="getMoreBreeds()" />

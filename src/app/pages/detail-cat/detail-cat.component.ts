@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-detail-cat',
@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
   templateUrl: './detail-cat.component.html',
   styleUrl: './detail-cat.component.scss'
 })
-export class DetailCatComponent {
+export default class DetailCatComponent {
+
+  id = input.required<string>();
 
 }

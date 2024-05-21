@@ -1,0 +1,15 @@
+<div class="card flex justify-content-center">
+  <p-card [header]="data().name" [subheader]="data().id" [style]="{ width: '360px' }">
+    <ng-template pTemplate="header">
+      <img alt="Card" src="https://primefaces.org/cdn/primeng/images/card-ng.jpg" />
+    </ng-template>
+    <p>
+      {{ data().description }}
+    </p>
+    <ng-template pTemplate="footer">
+      <div class="flex gap-3 mt-1">
+        <p-button label="Detalle" class="w-full" styleClass="w-full" (click)="openDetail(data().id)" />
+      </div>
+    </ng-template>
+  </p-card>
+</div>
