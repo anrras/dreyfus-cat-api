@@ -12,6 +12,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes, withViewTransitions(), withComponentInputBinding()),
     provideHttpClient(withInterceptors([authInterceptor, errorHandlerInterceptor, spinnerInterceptor])),
     provideServiceWorker('ngsw-worker.js', {
+      enabled: !isDevMode(),
       registrationStrategy: 'registerWhenStable:30000'
     })
   ],

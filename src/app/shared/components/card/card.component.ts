@@ -16,7 +16,7 @@ export class CardComponent {
   data = input.required<BreedResponse>()
 
   openDetail(id: string) {
-    this.router.navigate([`/detail/${id}`]);
+    this.router.navigate([`/cats/detail/${id}`]);
   }
 
 }

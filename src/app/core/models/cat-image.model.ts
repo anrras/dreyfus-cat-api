@@ -1,10 +1,18 @@
-export type BreedResponse = {
+export type CatImageResponse = {
+  breeds: Breed[];
+  id: string;
+  url: string;
+  width: number;
+  height: number;
+}
+
+export type Breed = {
   weight: Weight;
   id: string;
   name: string;
-  cfa_url?: string;
-  vetstreet_url?: string;
-  vcahospitals_url?: string;
+  cfa_url: string;
+  vetstreet_url: string;
+  vcahospitals_url: string;
   temperament: string;
   origin: string;
   country_codes: string;
@@ -12,7 +20,7 @@ export type BreedResponse = {
   description: string;
   life_span: string;
   indoor: number;
-  lap?: number;
+  lap: number;
   alt_names: string;
   adaptability: number;
   affection_level: number;
@@ -36,14 +44,6 @@ export type BreedResponse = {
   wikipedia_url: string;
   hypoallergenic: number;
   reference_image_id: string;
-  image?: Image;
-}
-
-type Image = {
-  id: string;
-  width: number;
-  height: number;
-  url?: string;
 }
 
 type Weight = {

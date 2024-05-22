@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Injectable, inject } from '@angular/core';
 import { Observable, map, retry, share } from 'rxjs';
-import { BreedResponse } from '@core/models';
+import { BreedResponse, CatImageResponse } from '@core/models';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +12,8 @@ export class CatApiService {
   private readonly BREEDS_URL = 'https://api.thecatapi.com/v1/breeds';
   private http = inject(HttpClient);
 
-  getCatImage(breedId: string): Observable<BreedResponse[]> {
-    return this.http.get<BreedResponse[]>(`https://api.thecatapi.com/v1/images/search?breed_ids=${breedId}&limit=8`).pipe(retry(3), share());
+  getCatImage(breedId: string): Observable<CatImageResponse[]> {
+    return this.http.get<CatImageResponse[]>(`https://api.thecatapi.com/v1/images/search?breed_ids=${breedId}&limit=8`).pipe(retry(3), share());
   }
 
   getMoreBreeds(page: number, limit: number) {
