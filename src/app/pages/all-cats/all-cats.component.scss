@@ -1,8 +1,9 @@
 main {
-  padding: 16px;
-  margin: 16px;
+  padding: 8px;
+  margin: 8px;
   display: grid;
   grid-template-columns: repeat(3, minmax(300px, 1fr));
   gap: 16px;
 }
+
 

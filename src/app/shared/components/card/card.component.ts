@@ -3,12 +3,11 @@ import { Router } from '@angular/router';
 import { BreedResponse } from '@core/models';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
-import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [CardModule, ButtonModule, NgOptimizedImage],
+  imports: [CardModule, ButtonModule],
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss'
 })
@@ -17,7 +16,6 @@ export class CardComponent {
   data = input.required<BreedResponse>()
 
   openDetail(id: string) {
-    console.log(id);
     this.router.navigate([`/detail/${id}`]);
   }
 

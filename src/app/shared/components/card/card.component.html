@@ -1,10 +1,11 @@
 <div class="card flex justify-content-center">
-  <p-card [header]="data().name" [subheader]="data().id" [style]="{ width: '360px' }">
+  <p-card [header]="data().name" [subheader]="data().id" [style]="{ width: '360px'}"
+    [style.view-transition-name]=" 'card' + data().id">
     <ng-template pTemplate="header">
-      @if(data()?.image?.url){
+      @if(data().image?.url){
       <img alt="Card" src="{{data().image?.url}}" />
       }@else {
-      <img alt="Card" src="/assets/imgs/no-image.png" />
+      <img alt="Card" ngSrc="/assets/imgs/no-image.png" />
       }
     </ng-template>
     <p>
