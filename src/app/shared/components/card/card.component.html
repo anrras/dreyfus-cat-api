@@ -3,7 +3,7 @@
     [style.view-transition-name]=" 'card' + data().id">
     <ng-template pTemplate="header">
       @if(data().image?.url){
-      <img alt="Card" src="{{data().image?.url}}" />
+      <img alt="Card" src="{{data().image?.url}}" style=" width: 360px; height: 200px; object-fit: contain;" />
       }@else {
       <img alt="Card" ngSrc="/assets/imgs/no-image.png" />
       }

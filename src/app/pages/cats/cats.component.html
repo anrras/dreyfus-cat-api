@@ -1,1 +1,5 @@
-<p>cats works!</p>
+<div id="btns">
+  <p-button label="Todos" (click)="goTo('/cats/all')" />
+  <p-button label="Buscar" (click)="goTo('/cats/search')" />
+</div>
+<router-outlet></router-outlet>

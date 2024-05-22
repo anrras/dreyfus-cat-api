@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 const CATS_ROUTES: Routes = [
   {
     path: '',
-    loadComponent: () => import('@pages/cats/cats.component')
+    loadComponent: () => import('@pages/cats/cats.component'),
   },
   {
     path: 'all',

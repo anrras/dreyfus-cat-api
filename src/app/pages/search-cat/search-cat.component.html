@@ -1,1 +1,22 @@
-<p>search-cat works!</p>
+<main>
+  <div class="card flex justify-content-center">
+    <p-card [style]="{ width: '360px'}">
+      <ng-template pTemplate="header">
+        <div id="header">
+          <p-dropdown [options]="catBreeds()" [(ngModel)]="selectedCat" optionLabel="name" [filter]="true"
+            filterBy="name" [showClear]="true" placeholder="Select a breed" (ngModelChange)="selectCat($event)">
+          </p-dropdown>
+        </div>
+      </ng-template>
+      @if(dataCat) {
+      <img src="{{dataCat.image?.url}}" alt="{{ dataCat.name }}"
+        style="width: 200px; height: 200px; object-fit: contain">
+      <p>
+        {{ dataCat.description }}
+      </p>
+      }
+
+    </p-card>
+  </div>
+
+</main>

@@ -8,7 +8,7 @@ export const routes: Routes = [
   },
   {
     path: 'cats',
-    loadComponent: () => import('@pages/cats/cats.component')
+    loadChildren: () => import('@pages/cats.routes')
   },
   {
     path: '**',

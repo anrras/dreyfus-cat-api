@@ -1,0 +1,11 @@
+#btns{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 100px);
+  place-content: center;
+}
+
+router-outlet{
+  width: 100vw;
+  max-width: 100vw
+}
