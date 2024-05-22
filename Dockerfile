@@ -3,23 +3,24 @@ FROM base as dependencies
 
 WORKDIR /app
 COPY package*.json ./
-RUN npm ci --omit=dev
+RUN npm ci
 
 FROM base as build
 
 WORKDIR /app
 COPY . .
 COPY --from=dependencies /app/node_modules ./node_modules
-RUN pnpm build
-RUN pnpm prune --prod
+RUN npm run build --configuration=production
 
-FROM base as deploy
+FROM nginx:alpine
 
-WORKDIR /app
-COPY --chown=node:node --from=build /app/dist ./dist
-COPY --chown=node:node --from=build /app/node_modules ./node_modules
-USER node
+## Copy our default nginx config
+COPY default.conf /etc/nginx/conf.d/
 
-# CMD [ "node", "dist/main.js" ]
+## Remove default nginx website
+RUN rm -rf /usr/share/nginx/html/*
 
+## From ‘builder’ stage copy over the artifacts in dist folder to default nginx public folder
+COPY --from=build /app/dist/dreyfus-cat-api/browser /usr/share/nginx/html
 
+CMD ["nginx", "-g", "daemon off;"]
