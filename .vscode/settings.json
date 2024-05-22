@@ -1,0 +1,30 @@
+{
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always",
+    "source.organizeImports": "always"
+  },
+  "editor.formatOnSave": true,
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "prettier.endOfLine": "lf",
+  "prettier.printWidth": 120,
+  "prettier.requireConfig": true,
+  "prettier.singleQuote": true,
+  "typescript.preferences.importModuleSpecifier": "shortest",
+  "workbench.colorCustomizations": {
+    // "titleBar.activeBackground": "#a200f9", // Title bar
+    // "titleBar.inactiveBackground": "#550082", // Title bar inactive
+    // "statusBar.background": "#8800f7",  // Status bar
+    "activityBar.background": "#024e65"
+  }
+}

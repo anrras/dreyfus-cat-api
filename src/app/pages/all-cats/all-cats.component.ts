@@ -1,5 +1,5 @@
 import { JsonPipe } from '@angular/common';
-import { Component, OnInit, computed, inject, model, signal } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
 import { BreedResponse } from '@core/models';
 import { CatApiService } from '@core/services';
 import { CardComponent } from '@shared/components';
