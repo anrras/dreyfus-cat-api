@@ -1,7 +1,7 @@
 @if (catBreeds()) {
 <main>
   @for (breed of catBreeds(); track $index) {
-  <app-card [data]="breed" [style.view-transition-name]=" 'card' + breed.id" />
+  <app-card [data]="breed" />
   }
   @empty {
   <p>No cats found</p>

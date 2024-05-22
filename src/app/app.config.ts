@@ -9,7 +9,7 @@ import { authInterceptor, errorHandlerInterceptor, spinnerInterceptor } from '@c
 export const appConfig: ApplicationConfig = {
   providers: [
     provideAnimationsAsync(),
-    provideRouter(routes, withViewTransitions(), withComponentInputBinding()),
+    provideRouter(routes, withComponentInputBinding()),
     provideHttpClient(withInterceptors([authInterceptor, errorHandlerInterceptor, spinnerInterceptor])),
     provideServiceWorker('ngsw-worker.js', {
       enabled: !isDevMode(),

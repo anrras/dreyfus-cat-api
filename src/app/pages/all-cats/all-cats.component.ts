@@ -25,7 +25,6 @@ export default class AllCatsComponent implements OnInit {
 
   getMoreBreeds() {
     this.catService.getMoreBreeds(this.page, 10).subscribe(res => {
-      console.log(res)
       this.catBreeds.update(breeds => [...breeds, ...res]);
       this.page++
     })

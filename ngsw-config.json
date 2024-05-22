@@ -30,7 +30,10 @@
   "dataGroups": [
     {
       "name": "poke-api",
-      "urls": ["https://api.thecatapi.com/v1/breeds"],
+      "urls": [
+        "https://api.thecatapi.com/v1/breeds/**",
+        "https://api.thecatapi.com/v1/images/search/**"
+      ],
       "cacheConfig": {
         "maxAge": "1h",
         "strategy": "performance",
